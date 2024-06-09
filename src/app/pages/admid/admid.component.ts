@@ -21,10 +21,10 @@ constructor(private formBuilder: FormBuilder,
 ){
   this.formulario = formBuilder.group({
 "producto": new FormControl(null, [Validators.required ,]),
- "Precio": new FormControl(null, [Validators.required, Validators.nullValidator]),
+ "Precio": new FormControl(null, [Validators.required, /*Validators.pattern*/]),
  "Descripcion": new FormControl(null, []),
  "Imagen":new FormControl(null,[Validators.required]),
- "Opiniones":new FormControl(null, [Validators.nullValidator])
+ "Opiniones":new FormControl(null, [/*Validators.pattern*/])
 
   })
   productService.getById(Number(this.parametro.id)).subscribe({
