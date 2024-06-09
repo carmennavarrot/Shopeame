@@ -1,1 +1,18 @@
-<p>admid works!</p>
+<h1>Creación/ edición de productos</h1>
+<div>
+<form class="form-group d-flex flex-column" action="" [formGroup]="formulario" (ngSubmit)="enviarFormulario()" >
+    <label for="">Nombre del producto:</label>
+    <input formControlName="producto" type="text">
+    <label for="">Precio:</label>
+    <input formControlName="Precio" type="text">
+    <label for="">Descripción:</label>
+    <input formControlName="Descrip" type="text">
+    <label for="">Ruta de la imagen:</label>
+    <input formControlName="Imagen" type="text">
+    <label for="">Opiniones:</label>
+    <input formControlName="Opiniones" type="text">
+    <button type="submit" class="btn btn-warning">Guardar</button>
+</form>
+<!-- {{formulario.valid}} -->
+ 
+</div>

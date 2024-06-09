@@ -1,15 +1,17 @@
 import { Component, Input, input } from '@angular/core';
 import { Product } from '../../interfaces/product';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
 @Input() product!: Product;
+products: any;
 
 public get estrellasEnteras() : number[]{
   const estrellas = []

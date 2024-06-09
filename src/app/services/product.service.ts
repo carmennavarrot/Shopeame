@@ -10,4 +10,7 @@ url: string = "https://my-json-server.typicode.com/franlindebl/shopeame-api-v2/p
   getAll(){
     return this.http.get(this.url)
   }
+  getById(id: number){
+    return this.http.get(`${this.url}?postId=${id}`)
+  }
 }

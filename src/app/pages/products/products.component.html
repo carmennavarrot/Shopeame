@@ -1,20 +1,10 @@
-<h3>Listado de productos {{products.length}}</h3>
+<h3>Listado de productos ({{products.length}})</h3>
 
-<ul class=" row list-unstyle">
-    @for (product of products; track product) {
+<ul class="row list-unstyled">
+    @for(product of products; track product){
         <li class="col-md-6 col-sm-12 col-lg-3 my-1">
-            <div class="card text-center h-100">
-                <img class="mx-auto" [src]="product.image" alt="" width="200" height="200">
-                <div class="card-body">
-                    <p class="card-text">{{product.description}}</p>
-                    <span class="card-text h4">{{product.price}}</span>
-                    <div>
-                        <i class="fa fa-star"></i>
-                        {{product.stars}} 
-                        <button class="btn btn-outline-primary ">Editar</button>
-                    </div>
-                </div>
-            </div>
+            <app-product [product]="product"></app-product>
         </li>
+
     }
 </ul>
