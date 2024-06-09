@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../interfaces/product';
 import { ProductComponent } from '../../components/product/product.component';
@@ -11,7 +11,7 @@ import { ProductComponent } from '../../components/product/product.component';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
- parametro!: Product
+
   products: Product[] = []
 
   constructor(private productService: ProductService){
@@ -21,11 +21,6 @@ export class ProductsComponent {
       },
       error: ()=>{}
     })
-    productService.getById(Number(this.parametro.id)).subscribe({
-      next: (response)=>{
-        this.parametro = response as Product
-      },
-      error: ()=>{}
-    })
+   
   }
 }
