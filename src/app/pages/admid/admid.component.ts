@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product } from '../../interfaces/product';
 import { ProductService } from '../../services/product.service';
 import { ProductComponent } from '../../components/product/product.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admid',
@@ -12,12 +13,13 @@ import { ProductComponent } from '../../components/product/product.component';
   styleUrl: './admid.component.css'
 })
 export class AdmidComponent {
-
+  @Input() product!: Product;
 formulario!: FormGroup
-parametro!: Product
+parametro: string | null = "";
 
 constructor(private formBuilder: FormBuilder,
-  private productService: ProductService
+  private productService: ProductService,
+  private route: ActivatedRoute
 ){
   this.formulario = formBuilder.group({
 "producto": new FormControl(null, [Validators.required ,]),
@@ -27,12 +29,9 @@ constructor(private formBuilder: FormBuilder,
  "Opiniones":new FormControl(null, [/*Validators.pattern*/])
 
   })
-  productService.getById(Number(this.parametro.id)).subscribe({
-    next: (response)=>{
-      this.parametro = response as Product
-    },
-    error: ()=>{}
-  })
+   route.paramMap.subscribe((params)=>{
+    this.parametro =params.get('id');
+   });
 }
 
 enviarFormulario() {

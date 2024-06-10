@@ -1,6 +1,6 @@
 <h1>Creación/ edición de productos</h1>
-<div>
-<form class="form-group d-flex flex-column" action="" [formGroup]="formulario" (ngSubmit)="enviarFormulario()" >
+<div class="d-flex justify-content-between">
+<form class="form-group d-flex flex-column product-section flex-grow-1" action="" [formGroup]="formulario" (ngSubmit)="enviarFormulario()" >
     <label for="">Nombre del producto:</label>
     <input formControlName="producto" type="text">
     @if (formulario.get("producto")?.touched && formulario.get("producto")?.errors){
@@ -26,8 +26,8 @@
     <button type="submit" class="btn btn-warning">Guardar</button>
 </form>
 <!-- {{formulario.valid}} -->
- <div>
-   <app-product></app-product>
- </div>
+<div class="orange-strip"></div>
+ <div class="form-section flex-grow-2">
+   <app-product [product]="product"></app-product>
  
 </div>

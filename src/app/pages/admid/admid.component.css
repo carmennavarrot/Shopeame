@@ -1,0 +1,14 @@
+.product-section {
+    width: 60%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-section {
+    width: 30%;
+}
+
+.orange-strip {
+    width: 5px;
+    background-color: orange;
+}
