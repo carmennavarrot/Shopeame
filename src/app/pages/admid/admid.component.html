@@ -2,27 +2,30 @@
 <div class="d-flex justify-content-between">
 <form class="form-group d-flex flex-column product-section flex-grow-1" action="" [formGroup]="formulario" (ngSubmit)="enviarFormulario()" >
     <label for="" class="form-label">Nombre del producto:</label>
-    <input formControlName="producto" type="text">
+    <input (keyup)="onCambioProduct()" formControlName="producto" type="text">
     @if (formulario.get("producto")?.touched && formulario.get("producto")?.errors){
         <span>requerido</span>
     }
     <label for="">Precio:</label>
-    <input formControlName="Precio" type="text">
+    <input (keyup)="onCambioPrecio()" formControlName="Precio" type="text">
     @if (formulario.get("Precio")?.touched && formulario.get("Precio")?.errors){
-        <span>requerido</span>
+        <span class="">requerido</span>
     }
     <label for="">Descripción:</label>
-    <input formControlName="Descrip" type="text">
-    <label for="">Ruta de la imagen:</label>
+    <input (keyup)="onCambioDescrip()" formControlName="Descrip" type="text">
     @if (formulario.get("Descrip")?.touched && formulario.get("Descrip")?.errors){
-        <span>requerido</span>
+        <span class="">requerido</span>
     }
-    <input formControlName="Imagen" type="text">
-    <label for="">Opiniones:</label>
+
+    <label  for="">Ruta de la imagen:</label>
+    <input (keyup)="onCambioImagen()" formControlName="Imagen" type="text">
     @if (formulario.get("Imagen")?.touched && formulario.get("Imagen")?.errors){
-        <span>requerido</span>
+        <span [style]="{color: 'red'}">requerido</span>
     }
-    <input formControlName="Opiniones" type="text">
+    
+
+    <label for="">Opiniones:</label>
+    <input (keyup)="onCambioValoracion()" formControlName="Opiniones" type="text">
     <button type="submit" class="btn btn-warning">Guardar</button>
 </form>
 <!-- {{formulario.valid}} -->

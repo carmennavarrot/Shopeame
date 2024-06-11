@@ -1,14 +1,20 @@
+
 .product-section {
-    width: 60%;
+    flex: 0 1 60%;
     padding-left: 10px;
     padding-right: 10px;
+    box-sizing: border-box;
 }
 
 .form-section {
-    width: 30%;
+    flex: 0 1 30%;
+    box-sizing: border-box;
 }
 
 .orange-strip {
-    width: 5px;
+    flex: 0 1 5px;
     background-color: orange;
+    box-sizing: border-box;
+    margin-right: 10px; 
+    margin-left: 10px;
 }
