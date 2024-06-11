@@ -14,6 +14,7 @@ export class ProductsComponent {
 
   products: Product[] = []
 
+
   constructor(private productService: ProductService){
     productService.getAll().subscribe({
       next: (response)=>{

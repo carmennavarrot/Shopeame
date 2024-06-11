@@ -12,8 +12,13 @@ export const routes: Routes = [
         path: "productos",
         component: ProductsComponent
     },
+    // {
+    //     path: "gestion",
+    //     component: AdmidComponent
+    // },esto seria una opcion pero le hemos puesto en gestion/nuevo para ahorrarnos esta ruta y solo tener la ruta de id
     {
-        path: "gestion",
+        path: "gestion/:id",
         component: AdmidComponent
-    }
+    },
+   
 ];

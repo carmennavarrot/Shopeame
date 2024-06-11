@@ -14,7 +14,8 @@
 
 
             {{product.stars}}
-            <a class="btn btn-outline-primary" [routerLink]="'gestion/'+product.id">Editar</a>
+            @if (!editMode) { <a class="btn btn-outline-primary" [routerLink]="'/gestion/'+product.id">Editar</a>}
+            <!-- pongo /gestion para cargarme la ruta de productos -->
         </div>
     </div>
 </div>

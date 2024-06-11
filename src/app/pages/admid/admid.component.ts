@@ -13,13 +13,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './admid.component.css'
 })
 export class AdmidComponent {
-  @Input() product!: Product;
-formulario!: FormGroup
+ product: Product | null = null;
+formulario!: FormGroup;
 parametro: string | null = "";
 
 constructor(private formBuilder: FormBuilder,
   private productService: ProductService,
   private route: ActivatedRoute
+  // route activatedroute me permite utilizar 
 ){
   this.formulario = formBuilder.group({
 "producto": new FormControl(null, [Validators.required ,]),
@@ -29,9 +30,21 @@ constructor(private formBuilder: FormBuilder,
  "Opiniones":new FormControl(null, [/*Validators.pattern*/])
 
   })
-   route.paramMap.subscribe((params)=>{
+   route.paramMap.subscribe(params=>{
     this.parametro =params.get('id');
    });
+
+   if(this.parametro === "nuevo"){
+
+   }else{
+    productService.getById(Number(this.parametro)).subscribe({
+      next: (response)=>{
+        this.product = response as Product
+      },
+      error: ()=>{}
+    })
+   }
+
 }
 
 enviarFormulario() {
